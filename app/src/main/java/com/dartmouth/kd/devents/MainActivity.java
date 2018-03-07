@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity  {
     private ArrayAdapter<String> adapter;
     public static ArrayList<CampusEvent> eventlist;
     Context mcontext;
+    static int user=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +60,21 @@ public class MainActivity extends AppCompatActivity  {
         firebaseUser = firebaseAuth.getCurrentUser();
             databaseReference = FirebaseDatabase.getInstance().getReference("masterSheet");
             //starting a thread to parse and load events from url onto sqlitedata base and firebase
-            Load_Urlevents jsoupAsyncTask = new Load_Urlevents(this);
-            jsoupAsyncTask.execute();
+//            Load_Urlevents jsoupAsyncTask = new Load_Urlevents(this);
+//            jsoupAsyncTask.execute();
+        if (user == 1) {
             Intent intent = new Intent(this, FunctionActivity.class);
             startActivity(intent);
             //if user isn't logged in, go to log in window
+        }
 
     }
 
     @Override
     protected void onStart() {
             super.onStart();
+        Load_Urlevents jsoupAsyncTask = new Load_Urlevents(this);
+        jsoupAsyncTask.execute();
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -162,21 +167,21 @@ public class MainActivity extends AppCompatActivity  {
         if (Build.VERSION.SDK_INT < 23)
             return;
 
-        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                || checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.CAMERA, android.Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+                {
+            requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.ACCESS_FINE_LOCATION}, 0);
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED
-                && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
+              ) {
 
 
         }else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (shouldShowRequestPermissionRationale(android.Manifest.permission.CAMERA) || shouldShowRequestPermissionRationale(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                if (shouldShowRequestPermissionRationale(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                         || shouldShowRequestPermissionRationale(android.Manifest.permission.ACCESS_FINE_LOCATION)){
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -190,7 +195,7 @@ public class MainActivity extends AppCompatActivity  {
 
                         }
                     });
-                    requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.CAMERA, android.Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+                    requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.ACCESS_FINE_LOCATION}, 0);
                 }else{
                     //Never ask again and handle your app without permission.
                 }

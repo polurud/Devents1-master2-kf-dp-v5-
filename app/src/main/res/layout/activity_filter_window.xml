@@ -31,20 +31,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
+            android:background="@color/Dartmouth"
+            android:fontFamily="casual"
             android:onClick="onSaveClicked"
-            android:text="@string/ui_button_save"
-            android:fontFamily="casual">
-        </Button>
+            android:text="@string/ui_button_save"></Button>
 
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/cast_expanded_controller_background_color"
+            android:fontFamily="casual"
             android:onClick="onCancelClicked"
             android:text="@string/ui_button_cancel"
-            android:fontFamily="casual">
-        </Button>
+            android:textColor="@color/cast_expanded_controller_progress_text_color"></Button>
     </LinearLayout>
 </LinearLayout>
 

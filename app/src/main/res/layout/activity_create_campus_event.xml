@@ -47,23 +47,24 @@
         android:layout_margin="5dp"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:onClick="onSaveClicked"
-            android:text="@string/ui_button_save" >
-        </Button>
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="@color/Dartmouth"
+                android:onClick="onSaveClicked"
+                android:text="@string/ui_button_save"></Button>
 
-        <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="onCancelClicked"
-            android:text="@string/ui_button_cancel" >
-        </Button>
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cast_expanded_controller_background_color"
+                android:onClick="onCancelClicked"
+                android:text="@string/ui_button_cancel"
+                android:textColor="@color/cast_expanded_controller_progress_text_color"></Button>
     </LinearLayout>
 </LinearLayout>

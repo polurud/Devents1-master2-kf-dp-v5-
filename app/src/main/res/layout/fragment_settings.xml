@@ -41,8 +41,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Launch User Profile"
-        android:fontFamily="casual"/>
+        android:background="@color/Dartmouth"
+        android:fontFamily="casual"
+        android:text="Launch User Profile" />
 
 
 </LinearLayout>

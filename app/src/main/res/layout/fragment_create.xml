@@ -37,14 +37,14 @@ tools:context="com.dartmouth.kd.devents.CreateFragment">
         android:textAlignment="center"
         android:fontFamily="casual"/>
 
-<Button
-    android:id="@+id/startCreate"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:text="Launch Event Creater"
-    android:background= "@color/lightGreen"
-    android:fontFamily="casual"/>
+    <Button
+        android:id="@+id/startCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="casual"
+        android:text="Launch Event Creater" />
 
 
 </LinearLayout>

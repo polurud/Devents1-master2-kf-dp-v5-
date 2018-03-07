@@ -19,16 +19,18 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="horizontal" >
+
         <Button
             android:id="@+id/button_cancel_map"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
+            android:background="@color/Dartmouth"
+            android:fontFamily="casual"
             android:onClick="onExitMap"
             android:padding="10dip"
-            android:text="BACK"
-            android:fontFamily="casual"/>
+            android:text="BACK" />
 
     </LinearLayout>
 
